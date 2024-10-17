@@ -1,89 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navratri poojan Karma</title>
-    <style>
-        body {
-            text-align: center;
-            margin: 0;
-            padding: 0;
-	    background-image: url('https://www.fabhotels.com/blog/wp-content/uploads/2020/03/Art-of-Living-International-Center-Bangalore-600.jpg');
-	   background-size: cover; 
-            background-repeat: no-repeat; 
-            background-attachment: fixed; 
-            background-position: center;
-backdrop-filter: blur(10px)
-
-}
-        .photo-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .photo-grid img {
-            margin: 10px;
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            cursor: pointer;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-        }
-  .logo {
-            max-width: 150px; /* Adjust size of the logo */
-            height: auto;
-        }
-figcaption{
- color:black;
-font-weight: bold;
-  font-size: 20px;
-}
-h1{
-color:white;
-}
-    </style>
+    <title>Alphabet Sum Calculator</title>
 </head>
- <header>
-        <!-- Logo centered at the top -->
-        <img class="logo" src="https://vaidicpujas.org/wp-content/uploads/2020/06/cropped-VDS-AOL-Logo-white-1-1.png" alt="Website Logo">
-    </header>
-
 <body>
-    <h1>Navratri Poojan</h1>
-    <div class="photo-grid">
-        <a href="https://vaidicpujas.org/sevadetails/?transid=56666" target="_blank">
-            <img src="https://vaidicpujas.org/wp-content/uploads/2016/12/05_Sudarshan-Homa-1-150x150.png" alt="Photo 1">
- <figcaption>Maha Sudharshana Homa</figcaption>
-        </a>
+    <h1>Alphabet Sum Calculator</h1>
+    <label for="nameInput">Enter a name:</label>
+    <input type="text" id="nameInput">
+    <button onclick="calculateSum()">Calculate Sum</button>
 
-   
-        <a href="https://vaidicpujas.org/sevadetails/?transid=56651" target="_blank">
-            <img src="https://vaidicpujas.org/wp-content/uploads/2016/12/Ganpati-Puja_2-150x150.png" alt="Photo 2">
-<figcaption>Maha Ganpati Homa</figcaption>
-        </a>
-    
-        <a href="https://vaidicpujas.org/sevadetails/?transid=56672" target="_blank">
-            <img src="https://vaidicpujas.org/wp-content/uploads/2016/12/08_Chandi-Homa-1-150x150.png" alt="Photo 3">
-<figcaption>Sri Chandika Homa</figcaption>
-        </a>
-    
- <a href="https://vaidicpujas.org/sevadetails/?transid=56676" target="_blank">
-            <img src="https://vaidicpujas.org/wp-content/uploads/2016/12/Rudra-Puja-150x150.png" alt="Photo 3">
-<figcaption>Maha Rudra Homa</figcaption>
-        </a>
-  
- <a href="https://vaidicpujas.org/sevadetails/?transid=56683" target="_blank">
-            <img src="https://vaidicpujas.org/wp-content/uploads/2018/09/Sarva-Yagnya-Sankalpa-Icon-150x150.png" alt="Photo 3">
-<figcaption> Navgraha Homa</figcaption>
-        </a>
-   
-<a href="https://vaidicpujas.org/sevadetails/?transid=56680" target="_blank">
-            <img src="https://vaidicpujas.org/wp-content/uploads/2016/12/Grah-Pravesh-Puja.png" alt="Photo 3">
-<figcaption> Navaratri Vastu Homa</figcaption>
-        </a>
-    </div>
+    <p id="result"></p>
+
+    <script>
+        // Step 1: Create a mapping of the alphabet to numbers
+        const alphabetToNumber = {
+            'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 8, 'G': 3, 'H': 5, 'I': 1, 'J': 1,
+            'K': 2, 'L': 3, 'M': 4, 'N': 5, 'O': 7, 'P': 8, 'Q': 1, 'R': 2, 'S': 3, 'T': 4,
+            'U': 6, 'V': 6, 'W': 6, 'X': 5, 'Y': 1, 'Z': 7
+        };
+
+        function calculateSum() {
+            // Step 2: Get the input name
+            const name = document.getElementById('nameInput').value.toUpperCase();
+            
+            // Step 3: Initialize the sum
+            let totalSum = 0;
+
+            // Step 4: Iterate through each character in the name
+            for (let char of name) {
+                if (alphabetToNumber[char]) {
+                    // Step 4: Look up the character in the mapping and add its value to the sum
+                    totalSum += alphabetToNumber[char];
+                } else {
+                    console.log(`Character '${char}' is not a valid alphabet letter.`);
+                }
+            }
+
+            // Step 5: Display the result
+            document.getElementById('result').innerText = `The sum of the numbers for the name '${name}' is: ${totalSum}`;
+        }
+    </script>
 </body>
 </html>
-
